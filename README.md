@@ -47,9 +47,4 @@ The goal of this part of the lab is to allow users to associate explorers with p
 1. Implement client-side validation for the explorer form to ensure that the user provides a name and age before submitting the form.
 2. Add styling to the explorer-related pages to enhance the user experience.
 
-### This is the final deliverable. Make a pull request to submit your completed work. Good job!
-
-
-## Deliverable?
-
-### The final version of `mongoose-flights`, as a result of completing parts 1 - 3 of this lab, is a DELIVERABLE.  Please submit the GitHub repo link as directed.
+### This is the final deliverable. If you haven't yet made a pull request, please do so.  If you have already made a pull reuquest, you do not need to do a second one, just push your code. 
