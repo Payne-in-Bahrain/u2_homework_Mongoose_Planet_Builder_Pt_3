@@ -32,7 +32,7 @@ The goal of this part of the lab is to allow users to associate explorers with p
         - `GET /explorers/new`: Display a form to add a new explorer.
         - `GET /explorers`: List all explorers.
         - `POST /explorers`: Create a new explorer.
-        - `POST /planets/:planetId/explorer`: Allow users to submit the explorer id in the request body to associate the explorer with the specified planet.
+        - `POST /planets/:planetId/explorers`: Allow users to submit the explorer id in the request body to associate the explorer with the specified planet.
 
 2. **Update Planet's Detail Page:**
 
