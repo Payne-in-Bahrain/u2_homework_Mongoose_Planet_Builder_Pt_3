@@ -5,7 +5,7 @@
 
 ## Intro
 
-In this part of the Mongoose Planet Builder lab, you'll be expanding the functionality to associate explorers with planets. This will involve creating routes and controllers for explorers, creating an explorers schema and mongoose model, and allowing users to associate an explorer with a planet.
+In this part of the Mongoose Planet Builder lab, you'll be expanding the functionality of your app to associate explorers with planets. This will involve creating routes and controllers for explorers, creating an explorers schema and mongoose model, and allowing users to associate an explorer with a planet.
 
 ## Goal
 
