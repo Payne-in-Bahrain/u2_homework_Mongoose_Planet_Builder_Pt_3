@@ -1,5 +1,5 @@
 
-<img src="https://i.imgur.com/ONAAEVZ.jpg" width="60%">
+<img src="https://i.imgur.com/ONAAEVZ.jpg" width="80%">
 
 # Mongoose Planet Builder - Part 3
 
