@@ -9,8 +9,7 @@ In this part of the Mongoose Planet Builder lab, you'll be expanding the functio
 
 ## Goal
 
-The goal of this part of the lab is to allow users to associate explorers with planets and display explorers unassociated with a planet on the planet's detail page.
-
+The goal of this part of the lab is to allow users to associate explorers with planets.
 ## Exercises
 
 👉 Refer to `mongoose-movies` as needed!
