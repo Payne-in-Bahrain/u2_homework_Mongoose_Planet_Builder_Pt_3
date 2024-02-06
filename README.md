@@ -37,7 +37,7 @@ The goal of this part of the lab is to allow users to associate explorers with p
 2. **Update Planet's Detail Page:**
 
     - **Show Page (moviesCtrl.show):**
-        Update the planet's detail page (`show` view) to display the explorers currently associated with that planet and include the form to associate additional explorers.
+        Update the planet's detail page (`show` view) to display the explorers not currently associated with that planet and include the form to associate additional explorers.
 
     - **Routes (planets.js):**
         Modify the planets routes and controllers as needed to accommodate the changes. Ensure that the explorers are properly populated in the planet's detail page.
