@@ -4,14 +4,14 @@ const Planet = require('../models/planet')
 const index = async (req, res) => {
   const p1 = await Planet.find({})
 
-  res.render('planet/index', { planets: p1, title: 'All Planets' })
+  res.render('planets/index', { planets: p1, title: 'All Planets' })
   // console.log('Planets are :', p1s)
 }
 
 const showPlanet = async (req, res) => {
   const id = req.params.id
   const planet = await Planet.findById(id)
-  res.render('planet/show', {
+  res.render('planets/show', {
     p: planet,
     title: 'Planet Details'
   })
