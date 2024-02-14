@@ -1,0 +1,133 @@
+<%- include('../partials/header') %>
+<style>
+  div.content {
+    width: 330px;
+    margin: 10px auto;
+  }
+  div.container {
+    width: inherit;
+    height: 25px;
+    padding: 3px 0 0 7px;
+    color: white;
+    background-color: blueviolet;
+  }
+  select {
+    width: 173px;
+    height: 23px;
+    padding: 1px 2px;
+  }
+
+  input[type='text'],
+  select {
+    float: right;
+    margin: 0 10px 0 0;
+  }
+
+  div.formFooter button {
+    display: block;
+    width: 40px;
+    margin: 4px auto;
+  }
+</style>
+<div class="content">
+  <form action="/planets" method="post">
+    <div class="container">
+      <label>Name</label
+      ><input type="text" name="name" placeholder="New Planet Name" />
+    </div>
+    <div class="container">
+      <label>Climate</label>
+      <select name="climate" id="planetClimate">
+        <option value="0">Select</option>
+      </select>
+    </div>
+    <div class="container">
+      <label>Population</label
+      ><input type="text" name="population" placeholder="Population" />
+      <input type="hidden" name="plants" id="planetPlantsList" />
+    </div>
+    <div class="addPlantButtonContainer">
+      <button type="button" onclick="addNewPlantUI()">add plant</button>
+    </div>
+    <div class="plants"></div>
+    <div class="formFooter">
+      <button type="submit">Add</button>
+    </div>
+  </form>
+</div>
+<input type="checkbox" name="" id="" />
+<script>
+  const plantsList = []
+  onload = () => {
+    const climates = ['Oceanic', 'Tropical', 'Arctic', 'Desert', 'Rainforest']
+    const select = document.querySelector('select')
+    climates.forEach((climate, index) => {
+      // console.log('Onlaod..')
+      const option = document.createElement('option')
+      option.text = climate
+      option.value = climate
+      select.appendChild(option)
+    })
+  }
+
+  const addNewPlantUI = () => {
+    const plantsDiv = document.body.querySelector('div.plants')
+    const plantInfoDiv1 = document.createElement('div')
+
+    const plantNameLabel = document.createElement('label')
+    plantNameLabel.innerText = 'Name: '
+    const plantNameInput = document.createElement('input')
+    plantNameInput.className = 'plantNameInput'
+    plantInfoDiv1.appendChild(plantNameLabel)
+    plantInfoDiv1.appendChild(plantNameInput)
+
+    const plantInfoDiv2 = document.createElement('div')
+    const plantColorLabel = document.createElement('label')
+    plantColorLabel.innerText = 'Color: '
+    const plantColorInput = document.createElement('input')
+    plantColorInput.className = 'plantColorInput'
+    plantInfoDiv2.appendChild(plantColorLabel)
+    plantInfoDiv2.appendChild(plantColorInput)
+
+    const plantInfoDiv3 = document.createElement('div')
+    const plantPoisonLabel = document.createElement('label')
+    plantPoisonLabel.innerText = 'Poison: '
+    const plantPoisonCheckbox = document.createElement('input')
+    plantPoisonCheckbox.setAttribute('type', 'checkbox')
+    plantPoisonCheckbox.className = 'plantPoisonCheckbox'
+    const addPlantButton = document.createElement('button')
+    addPlantButton.innerText = 'Ok'
+    addPlantButton.type = 'button'
+    // addPlantButton.id="addPlantToPlanet"
+
+    plantInfoDiv3.appendChild(plantPoisonLabel)
+    plantInfoDiv3.appendChild(plantPoisonCheckbox)
+    plantInfoDiv3.appendChild(addPlantButton)
+
+    plantsDiv.appendChild(plantInfoDiv1)
+    plantsDiv.appendChild(plantInfoDiv2)
+    plantsDiv.appendChild(plantInfoDiv3)
+
+    addPlantButton.addEventListener('click', () => {
+      const plantName = document.body.querySelector('.plantNameInput')
+      const plantColor = document.body.querySelector('.plantColorInput')
+      const isPoisonous = document.body.querySelector('.plantPoisonCheckbox')
+      const planetPlantsListHidden =
+        document.body.querySelector('#planetPlantsList')
+      planetPlantsList
+      plantsList.push({
+        name: `${plantName.value}`,
+        color: `${plantColor.value}`,
+        isPoison: `${isPoisonous.checked}`
+      })
+      planetPlantsListHidden.value = JSON.stringify(plantsList)
+      console.log(planetPlantsListHidden.value)
+      /*
+      planetPlantsList.value.forEach((obj) => {
+        console.log(obj)
+      }) */
+    })
+    // plantsDiv.appendChild(plantInfoDiv1)
+  }
+</script>
+<%- include('../partials/footer') %>

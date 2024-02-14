@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<style>
+  section.planets {
+    width: 70%;
+    margin: 20px auto;
+  }
+
+  div.planet {
+    width: 200px;
+    border-bottom: 2px solid red;
+    margin: 5px auto;
+  }
+
+  p.name {
+    background-color: antiquewhite;
+  }
+</style>
+<section class="planets">
+  <% planets.forEach((planet) => {%>
+  <div class="planet">
+    <p class="name"><a href="planets/<%=planet._id%>"><%=planet.name%></a></p>
+  </div>
+  <%})%>
+</section>
+<hr />
+<%- include('../partials/footer') %>
