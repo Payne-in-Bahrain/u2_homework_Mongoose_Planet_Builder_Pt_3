@@ -18,50 +18,46 @@ const showPlanet = async (req, res) => {
 }
 
 const newPlanet = (req, res) => {
-  res.render('planet/newPlanet', { title: 'New Planet' })
+  res.render('planets/newPlanet', { title: 'New Planet' })
 }
 
 const addNewPlanet = async (req, res) => {
   try {
-    console.log('req.body.plants is :', req.body.plants)
+    // console.log('req.body.plants is :', req.body.plants)
     const reqPlantsValue = req.body.plants
     // console.log('Object.create() result is :', Object.create())
     const newPlanetValue = Object.create({})
-    const newPlanetValueAfterAddingPlants = Object.create({})
+    // const newPlanetValueAfterAddingPlants = Object.create({})
     // console.log('req.body is :', req.body)
     newPlanetValue.name = req.body.name
     // console.log('req.body.name is :', req.body.name)
     // console.log('1-newPlanetValue is :', newPlanetValue)
     newPlanetValue.climate = req.body.climate
     newPlanetValue.population = req.body.population
-    newPlanetValue.plants = req.body.plants
+    newPlanetValue.plants = []
     // console.log('2-newPlanetValue is :', newPlanetValue)
-    newPlanetValue.plants = JSON.parse(reqPlantsValue)
+    // newPlanetValue.plants = JSON.parse(reqPlantsValue)
 
-    newPlanetValueAfterAddingPlants.name = newPlanetValue.name
-    newPlanetValueAfterAddingPlants.climate = newPlanetValue.climate
-    newPlanetValueAfterAddingPlants.population = newPlanetValue.population
-
-    const plants = newPlanetValue.plants.map((plantObj) => {
-      if (plantObj.isPoison === 'true') {
-        return {
-          name: plantObj.name,
-          color: plantObj.color,
-          poisonous: true
-        }
-      } else {
-        return {
-          name: plantObj.name,
-          color: plantObj.color,
-          poisonous: false
-        }
-      }
-    })
+    // const plants = newPlanetValue.plants.map((plantObj) => {
+    //   if (plantObj.isPoison === 'true') {
+    //     return {
+    //       name: plantObj.name,
+    //       color: plantObj.color,
+    //       poisonous: true
+    //     }
+    //   } else {
+    //     return {
+    //       name: plantObj.name,
+    //       color: plantObj.color,
+    //       poisonous: false
+    //     }
+    //   }
+    // })
 
     // console.log('plants arr is :', plants)
-    newPlanetValueAfterAddingPlants.plants = plants
+    // newPlanetValueAfterAddingPlants.plants = plants
     // console.log('new planet is :', newPlanetValue)
-    const newPlanet = new Planet(newPlanetValueAfterAddingPlants)
+    const newPlanet = new Planet(newPlanetValue)
     await newPlanet.save()
     res.redirect('/planets')
   } catch (error) {
