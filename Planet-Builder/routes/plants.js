@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-const plantCtrl = require('../controllers/planets/plantCtrl')
+const plantCtrl = require('../controllers/plants')
 
 /* POST /planets */
 // router.post('/', plantCtrl.addNewPlant)

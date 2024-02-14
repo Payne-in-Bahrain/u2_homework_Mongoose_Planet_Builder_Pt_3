@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-const planetCtrl = require('../controllers/planets/planetCtrl')
+const planetCtrl = require('../controllers/planets')
 
 /* GET planets listing. */
 router.get('/', planetCtrl.index)

@@ -1,5 +1,5 @@
 const { model } = require('mongoose')
-const Planet = require('../../models/planet')
+const Planet = require('../models/planet')
 
 const index = (req, res) => {
   res.redirect('/planets')

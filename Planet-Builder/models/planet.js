@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+require('./explorer')
 const plantSchema = mongoose.Schema({
   name: {
     type: String,
@@ -37,7 +38,7 @@ const planetSchema = mongoose.Schema({
   },
   population: { type: Number, required: true },
   plants: [plantSchema],
-  explorer: [{ type: Schema.Types.ObjectId, ref: 'Explorer' }]
+  explorer: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Explorer' }]
 })
 
 module.exports = mongoose.model('Planet', planetSchema)
