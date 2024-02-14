@@ -21,27 +21,6 @@ const plantSchema = mongoose.Schema({
   poisonous: { type: Boolean, enum: [true, false], required: true }
 })
 
-const exporerSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    validate(value) {
-      if (value === undefined) {
-        throw new Error('Please give the explorer a name.')
-      }
-    }
-  },
-  age: {
-    type: Number,
-    required: true,
-    validate(value) {
-      if (value === undefined) {
-        throw new Error('Please give the explorer an age.')
-      }
-    }
-  }
-})
-
 const planetSchema = mongoose.Schema({
   name: { type: String, required: true },
   climate: {
@@ -57,7 +36,8 @@ const planetSchema = mongoose.Schema({
     }
   },
   population: { type: Number, required: true },
-  plants: [plantSchema]
+  plants: [plantSchema],
+  explorer: [{ type: Schema.Types.ObjectId, ref: 'Explorer' }]
 })
 
 module.exports = mongoose.model('Planet', planetSchema)
