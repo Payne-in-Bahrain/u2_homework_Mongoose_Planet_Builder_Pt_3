@@ -8,6 +8,7 @@ require('./config/database') // database
 
 var planetsRouter = require('./routes/planets')
 var plantsRouter = require('./routes/plants')
+const explorerRouter = require('./routes/explorers')
 
 var app = express()
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/planets', planetsRouter)
 app.use('/', plantsRouter)
+app.use('/explorers', explorerRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

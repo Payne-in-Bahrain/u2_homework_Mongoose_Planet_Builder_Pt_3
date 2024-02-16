@@ -1,8 +1,20 @@
 <%- include('../partials/header') %>
 <div class="planetDiv">
-  <p.planetP><span>Name:&nbsp;</span><span class="planetSpan"><%=p.name%></span></p>
-    <p.planetP><span>Climate:&nbsp;</span><span class="planetSpan"><%=p.climate%></span></p>
-      <p.planetP><span>Population:&nbsp;</span><span class="planetSpan"><%=p.population%></span></p>
+  <div class="planetDiv-col">
+    <p.planetP><span>Name:&nbsp;</span><span class="planetSpan"><%=p.name%></span></p>
+      <p.planetP><span>Climate:&nbsp;</span><span class="planetSpan"><%=p.climate%></span></p>
+        <p.planetP><span>Population:&nbsp;</span><span class="planetSpan"><%=p.population%></span></p>
+  </div>
+  <div class="planetDiv-col">
+    <p>Explorers</p>
+    <%function getExplorer(explorer) {%>
+      <div class="explorerLine">
+        <span>name:&nbsp;<%=explorer.name%></span><span>,&nbsp;&nbsp;</span>
+        <span>age:&nbsp;<%=explorer.age%></span>
+      </div>
+    <%}%>
+    <%p.explorer.map(getExplorer).join('')%>
+  </div>
 </div>
 <div class="plantsList">
   <% p.plants.forEach((plant) => { %>

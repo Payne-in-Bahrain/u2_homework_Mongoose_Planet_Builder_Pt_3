@@ -10,7 +10,7 @@ const index = async (req, res) => {
 
 const showPlanet = async (req, res) => {
   const id = req.params.id
-  const planet = await Planet.findById(id)
+  const planet = await Planet.findById(id).populate('explorer')
   res.render('planets/show', {
     p: planet,
     title: 'Planet Details'
@@ -75,4 +75,12 @@ const addNewPlanet = async (req, res) => {
   }
 }
 
-module.exports = { index, newPlanet, addNewPlanet, showPlanet }
+const assocExplorer = async (req, res) => {
+  const planetId = await req.params.planetId
+  const planet = Planet.findById(planetId)
+  planet.explorer.push(req.body.explorer)
+  planet.save()
+  res.redirect(`/planets/${planetId}`)
+}
+
+module.exports = { index, newPlanet, addNewPlanet, showPlanet, assocExplorer }
