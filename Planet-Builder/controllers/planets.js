@@ -1,5 +1,6 @@
-const planet = require('../models/planet')
+// const planet = require('../models/planet')
 const Planet = require('../models/planet')
+const Explorer = require('../models/explorer')
 
 const index = async (req, res) => {
   const p1 = await Planet.find({})
@@ -11,8 +12,10 @@ const index = async (req, res) => {
 const showPlanet = async (req, res) => {
   const id = req.params.id
   const planet = await Planet.findById(id).populate('explorer')
+  const explorers = await Explorer.find({})
   res.render('planets/show', {
     p: planet,
+    explorers: explorers,
     title: 'Planet Details'
   })
 }
@@ -76,11 +79,32 @@ const addNewPlanet = async (req, res) => {
 }
 
 const assocExplorer = async (req, res) => {
-  const planetId = await req.params.planetId
-  const planet = Planet.findById(planetId)
-  planet.explorer.push(req.body.explorer)
-  planet.save()
+  const planetId = req.params.planetId
+  console.log('planet id ====>', planetId)
+
+  const planet = await Planet.findById(planetId)
+  // console.log('associateExplorer planet found ==> ', planet)
+
+  if (!planet.explorer.includes(req.body.planets)) {
+    planet.explorer.push(req.body.planets)
+    await planet.save()
+  }
+
+  // res.send(`<h2>End of controllers/planets.js/assocExplorer</h2>`)
   res.redirect(`/planets/${planetId}`)
 }
 
-module.exports = { index, newPlanet, addNewPlanet, showPlanet, assocExplorer }
+const getAllPlanets = async (req, res) => {
+  const planets = await Planet.find({}).select('name')
+  // console.log('all planets are ===> ', planets)
+  return planets
+}
+
+module.exports = {
+  index,
+  newPlanet,
+  addNewPlanet,
+  showPlanet,
+  assocExplorer,
+  getAllPlanets
+}

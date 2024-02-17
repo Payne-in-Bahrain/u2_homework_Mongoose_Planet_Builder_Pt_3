@@ -17,6 +17,7 @@
   </div>
 </div>
 <div class="plantsList">
+  <p>Plants</p>
   <% p.plants.forEach((plant) => { %>
     <div class="plantName"><span>Name:&nbsp;</span><%= plant.name %></div>
     <div class="plantColor"><span>Color:&nbsp;</span><%= plant.color %></div>
@@ -29,6 +30,15 @@
     <label for="name">Name:</label><input type="text" name="name" id="name">
     <label for="color">Color:</label><input type="text" name="color" id="color">
     <label for="isPoison">Poisonous:</label><input type="checkbox" name="isPoison" id="poisonous">
+    <button type="submit">Add</button>
+  </form>
+  <form action="/planets/<%=p._id%>/explorers" method="Post">
+    <span class="title">EXPLORERS</span>
+    <select name="planets" id="planets">
+      <%explorers.forEach((explorer) => {%>
+      <option value="<%=explorer._id%>"><%=explorer.name%></option>
+      <%})%>
+    </select>
     <button type="submit">Add</button>
   </form>
 </div>

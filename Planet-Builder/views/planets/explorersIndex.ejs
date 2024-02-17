@@ -1,6 +1,14 @@
-<%explorers.forEach((explorer) => { %>
-<div class="explorerDetailsLine">
-  <span>name:&nbsp;<%=explorer.name%></span><span>,&nbsp;&nbsp;</span>
-  <span>age:&nbsp;<%=explorer.age%></span>
+<%- include('../partials/header') %>
+<div class="explorersList">
+  <%explorers.forEach((explorer) => { %>
+  <div class="explorerDetailsLine">
+    <span>name:&nbsp;<%=explorer.name%></span><span>,&nbsp;&nbsp;</span>
+    <span>age:&nbsp;<%=explorer.age%></span>
+  </div>
+  <%})%>
+  <div class="newExplorerContainer">
+    <a href="/explorers/new" class="addExplorerLink">+</a>
+  </div>
 </div>
-<%})%>
+
+<%- include('../partials/footer') %>
