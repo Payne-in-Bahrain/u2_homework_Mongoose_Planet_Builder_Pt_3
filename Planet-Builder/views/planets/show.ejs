@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+<div class="planetDiv">
+  <div class="planetDiv-col">
+    <p.planetP><span>Name:&nbsp;</span><span class="planetSpan"><%=p.name%></span></p>
+      <p.planetP><span>Climate:&nbsp;</span><span class="planetSpan"><%=p.climate%></span></p>
+        <p.planetP><span>Population:&nbsp;</span><span class="planetSpan"><%=p.population%></span></p>
+  </div>
+  <div class="planetDiv-col">
+    <p>Explorers</p>
+    <%function getExplorer(explorer) {%>
+      <div class="explorerLine">
+        <span>name:&nbsp;<%=explorer.name%></span><span>,&nbsp;&nbsp;</span>
+        <span>age:&nbsp;<%=explorer.age%></span>
+      </div>
+    <%}%>
+    <%p.explorer.map(getExplorer).join('')%>
+  </div>
+</div>
+<div class="plantsList">
+  <p>Plants</p>
+  <% p.plants.forEach((plant) => { %>
+    <div class="plantName"><span>Name:&nbsp;</span><%= plant.name %></div>
+    <div class="plantColor"><span>Color:&nbsp;</span><%= plant.color %></div>
+    <div class="plantIsPoisonous"><span>Poisounous:&nbsp;</span><%= plant.poisonous %></div>
+  <% }) %>
+</div>
+<div class="formContainer">
+  <form action="/planets/<%=p._id%>/plants" method="Post">
+    <span class="title">PLANTS</span>
+    <label for="name">Name:</label><input type="text" name="name" id="name">
+    <label for="color">Color:</label><input type="text" name="color" id="color">
+    <label for="isPoison">Poisonous:</label><input type="checkbox" name="isPoison" id="poisonous">
+    <button type="submit">Add</button>
+  </form>
+  <form action="/planets/<%=p._id%>/explorers" method="Post">
+    <span class="title">EXPLORERS</span>
+    <select name="planets" id="planets">
+      <%explorers.forEach((explorer) => {%>
+      <option value="<%=explorer._id%>"><%=explorer.name%></option>
+      <%})%>
+    </select>
+    <button type="submit">Add</button>
+  </form>
+</div>
+<%- include('../partials/footer') %>

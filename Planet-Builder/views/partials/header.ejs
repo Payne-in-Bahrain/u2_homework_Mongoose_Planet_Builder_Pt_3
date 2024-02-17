@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      a {
+        font-size: small;
+        margin: 0 5px;
+        color: inherit;
+      }
+
+      a:hover {
+        padding: 2px;
+        color: #000;
+        background-color: #fff;
+      }
+
+      h2 {
+        width: 170px;
+        margin: 5px auto;
+      }
+      nav.mainNav {
+        width: calc(100% - 20px);
+        margin: 5px auto;
+        padding: 3px 0;
+        text-align: center;
+        color: #fff;
+        background-color: black;
+      }
+
+      div.plantIsPoisonous {
+        border-bottom: 2px solid blue;
+        margin: 0 0 2px 0;
+      }
+
+      div.plantIsPoisonous:last-child {
+        margin: 0;
+      }
+
+      div.formContainer {
+        background-color: blue;
+        padding: 0 0 4px 0;
+      }
+
+      div.formContainer label {
+        color: #fff;
+      }
+
+      span.title {
+        color: black;
+        background-color: beige;
+        letter-spacing: 2px;
+      }
+
+      div.planetDiv-col {
+        display: inline-block;
+        /* background-color: yellow; */
+      }
+
+      div.planetDiv-col:nth-child(2) {
+        border-left: 1px solid #000;
+        margin-left: 7px;
+        padding-left: 5px;
+        vertical-align: top;
+        height: 100%;
+        background-color: beige;
+      }
+
+      div.planetDiv-col:nth-child(2) p {
+        margin: 0 0 5px 0;
+        padding: 0;
+      }
+
+      div.plantsList p {
+        width: fit-content;
+        background-color: beige;
+      }
+
+      div.explorersList {
+        width: 30%;
+        margin: 20px auto 0;
+        padding: 3px 3px 3px 5px;
+        background: cadetblue;
+      }
+
+      div.explorerDetailsLine {
+        background-color: white;
+        width: calc(100% - 20px);
+        margin: 3px auto 0;
+      }
+
+      div.newExplorerContainer {
+        width: 30px;
+        height: 30px;
+        margin: 10px auto 0;
+        font-size: 26px;
+        text-align: center;
+        line-height: 31px;
+        font-weight: bold;
+        background-color: black;
+        color: white;
+      }
+
+      div.newExplorerContainer a {
+        font-size: inherit;
+        padding: 0;
+        text-decoration: none;
+      }
+
+      div.newExplorerContainer:hover {
+        color: #000;
+        background-color: #fff;
+      }
+
+      div.newExplorerContainer a:hover {
+        padding: 0;
+        color: #000;
+        background-color: transparent;
+      }
+
+      div.new-explorer {
+        width: 48%;
+        margin: 40px auto;
+      }
+    </style>
+    <title><%=title%></title>
+  </head>
+  <body>
+    <h2>Planets World</h2>
+    <nav class="mainNav">
+      <a href="/planets/new">ADD PLANET</a><a href="/planets">ALL PLANETS</a
+      ><a href="/explorers">ALL EXPLORERS</a>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<h2>Planets and Explorers</h2>
+<form action="/planets/<%=planet._id%>/explorers" method="post">
+  <div class="explorerLine">
+    <span><%=explorer.name%></span>
+    &nbsp;&nbsp;planets:&nbsp;
+    <select name="planets" id="planets">
+      <%planets.forEach((planet) => {%>
+      <option value="<%=planet._id%>"><%=planet.name%></option>
+      <%})%>
+    </select>
+    <button>Add</button>
+  </div>
+</form>
